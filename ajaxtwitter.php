@@ -101,7 +101,7 @@ class Twitter_Scroller extends WP_Widget {
 			$twitter_xml = new SimpleXMLElement($twitter_raw);
 			foreach($twitter_xml->channel->item as $item) {
 			//replace 'johnernaut' with your username if you'd like to remove it from the description
-			$description = trim(str_replace('{$twitter_username}:', '', $item->description));
+			$description = trim(str_replace($twitter_username . ':', '', $item->description));
 			$twitter_item = array(
 			'content' => $description,
 			'date' => strtotime($item->pubDate),
